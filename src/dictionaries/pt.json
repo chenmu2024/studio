@@ -34,6 +34,15 @@
   "downloadFile": "Arquivo: {filename}",
   "errorInvalidData": "Dados inválidos para o tipo de código de barras selecionado.",
   "errorGenerationFailed": "A geração do código de barras falhou.",
+  "errorDownloadFailed": "Falha no download.",
+  "errorCanvasNotAvailable": "A pré-visualização do canvas não está disponível para download.",
+  "errorSVGNotAvailable": "A pré-visualização SVG não está disponível para download.",
+  "errorSVGEmpty": "A pré-visualização SVG está vazia.",
+  "errorSVGDimensionsZero": "As dimensões da pré-visualização SVG são zero.",
+  "errorCanvasContext": "Não foi possível obter o contexto do canvas para download.",
+  "errorImageLoadFailed": "Falha ao carregar a imagem para conversão.",
+  "errorInvalidDataForDownload": "Dados inválidos ou em falta para gerar um código de barras para download.",
+  "errorQRCodePreviewEmpty": "A pré-visualização do QR Code está vazia. Impossível baixar.",
   "validation": {
     "ean13": "Insira 12 dígitos (o dígito de controlo será calculado).",
     "ean8": "Insira 7 dígitos (o dígito de controlo será calculado).",
@@ -68,3 +77,5 @@
   "dimensionsAndOptionsLabel": "Dimensões e Opções",
   "qrCodeSizeLabel": "Tamanho do QR Code"
 }
+
+    
