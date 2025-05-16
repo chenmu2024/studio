@@ -3,7 +3,8 @@ import type { Locale } from '@/i18n-config';
 import type { Dictionary } from '@/lib/dictionaries';
 import Link from 'next/link';
 import { LanguageSwitcher } from './language-switcher';
-import { Barcode } from 'lucide-react';
+// Removed: import { Barcode } from 'lucide-react';
+import Image from 'next/image'; // Added for Next.js optimized images
 
 interface HeaderProps {
   lang: Locale;
@@ -15,7 +16,8 @@ export function Header({ lang, dictionary }: HeaderProps) {
     <header className="py-4 shadow-md bg-card">
       <div className="container mx-auto flex justify-between items-center px-4">
         <Link href={`/${lang}`} className="flex items-center gap-2 text-2xl font-bold text-primary hover:text-primary/90 transition-colors">
-          <Barcode className="h-8 w-8" />
+          {/* Replaced Barcode icon with an Image component for the logo */}
+          <Image src="/logo.png" alt={dictionary.siteName} width={32} height={32} className="h-8 w-8" />
           <span>{dictionary.siteName}</span>
         </Link>
         <LanguageSwitcher

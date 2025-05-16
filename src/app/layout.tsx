@@ -34,12 +34,10 @@ export const metadata: Metadata = {
     siteName: 'CodeBarreGenerator.com',
     images: [
       {
-        url: 'https://www.codebarregenerator.com/og-image.png',
+        url: '/og-image.png', // Updated to reference local public image
         width: 1200,
         height: 630,
         alt: 'Logo de CodeBarreGenerator.com - Générateur de code barre en ligne',
-        // @ts-ignore
-        'data-ai-hint': 'barcode social media' 
       },
     ],
     locale: 'fr_FR', // Default locale
@@ -53,13 +51,13 @@ export const metadata: Metadata = {
     // siteId: 'YourTwitterSiteID', // Optional: Your Twitter user ID
     // creator: '@YourTwitterHandle', // Optional: Your Twitter handle
     // creatorId: 'YourTwitterCreatorID', // Optional: Your Twitter user ID for the content creator
-    images: ['https://www.codebarregenerator.com/twitter-image.png?data-ai-hint=barcode_social_media&alt=Illustration_CodeBarreGenerator.com_outil_en_ligne'], // Replace with actual Twitter image URL, data-ai-hint and improved alt added as query for now
+    images: ['/twitter-image.png'], // Updated to reference local public image
   },
-  // icons: { // Add favicon links if you have them
-  //   icon: '/favicon.ico',
-  //   shortcut: '/favicon-16x16.png',
-  //   apple: '/apple-touch-icon.png',
-  // },
+  icons: { // Uncommented and updated favicon links
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export const viewport: Viewport = {
