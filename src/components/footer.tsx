@@ -21,20 +21,19 @@ export function Footer({ lang, dictionary }: FooterProps) {
             {dictionary.footerAboutUs}
           </Link>
           <span className="hidden sm:inline text-border">|</span>
-          <Link href={`/${lang}/contact-us`} className="hover:text-primary transition-colors">
-            {dictionary.footerContactUs}
+          <Link href={`/${lang}/terms-of-service`} className="hover:text-primary transition-colors">
+            {dictionary.footerTermsOfService}
           </Link>
           <span className="hidden sm:inline text-border">|</span>
           <Link href={`/${lang}/privacy-policy`} className="hover:text-primary transition-colors">
             {dictionary.footerPrivacyPolicy}
           </Link>
           <span className="hidden sm:inline text-border">|</span>
-          <Link href={`/${lang}/terms-of-service`} className="hover:text-primary transition-colors">
-            {dictionary.footerTermsOfService}
+          <Link href={`/${lang}/contact-us`} className="hover:text-primary transition-colors">
+            {dictionary.footerContactUs}
           </Link>
         </nav>
       </div>
     </footer>
   );
 }
-
