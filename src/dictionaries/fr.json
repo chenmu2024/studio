@@ -168,27 +168,129 @@
   ],
   "faqOutro": "Nous espérons que cette FAQ a répondu à vos interrogations. CodeBarreGenerator.com s'engage à fournir le meilleur service de générateur de code barre gratuit et facile d'accès.",
   
-  "pageTitleAboutUs": "À Propos de Nous | CodeBarreGenerator.com",
-  "metaDescriptionAboutUs": "Apprenez-en plus sur CodeBarreGenerator.com, votre ressource numéro un pour un generateur code barre gratuit, rapide et fiable. Découvrez notre mission.",
+  "pageTitleAboutUs": "À Propos de Nous | CodeBarreGenerator.com - Votre Générateur de Code Barre Gratuit",
+  "metaDescriptionAboutUs": "Apprenez-en plus sur CodeBarreGenerator.com, votre ressource pour un generateur de code barre gratuit, rapide et fiable. Découvrez notre mission et notre engagement envers un service de qualité.",
   "aboutUsTitle": "À Propos de CodeBarreGenerator.com",
-  "aboutUsP1": "Bienvenue sur CodeBarreGenerator.com ! Nous sommes passionnés par la simplification de la technologie et c'est pourquoi nous avons créé ce générateur de code barre. Notre objectif principal est de fournir un outil en ligne gratuit, intuitif et puissant qui permet à quiconque de créer des codes barres de qualité professionnelle sans tracas ni coûts cachés. Que vous soyez une petite entreprise cherchant à étiqueter des produits, un organisateur d'événements ayant besoin de billets avec QR codes, ou simplement un curieux explorant la technologie des codes barres, notre code barre generator est là pour vous.",
-  "aboutUsP2": "Chez CodeBarreGenerator.com, nous croyons en l'accès libre aux outils utiles. C'est pourquoi notre generateur de code barre supporte une vaste gamme de symbologies, y compris EAN-13, UPC-A, Code 128, Code 39, QR Code, et bien d'autres. Nous nous efforçons continuellement d'améliorer notre plateforme, en ajoutant de nouvelles fonctionnalités et en veillant à ce que notre service reste le meilleur générateur code barre disponible gratuitement.",
-  "aboutUsP3": "Notre équipe est composée de développeurs et de designers dévoués qui travaillent pour s'assurer que votre expérience sur CodeBarreGenerator.com soit fluide et efficace. Nous sommes fiers d'offrir un generateur de code barre qui est non seulement gratuit mais aussi respectueux de votre vie privée – nous ne stockons aucune des données que vous encodez.",
-  "aboutUsP4": "Merci de choisir CodeBarreGenerator.com. Nous espérons que notre outil vous sera utile. N'hésitez pas à nous contacter si vous avez des suggestions ou des questions sur notre générateur code barre gratuit.",
+  "aboutUsP1": "Bienvenue sur {siteName} ! Nous sommes passionnés par la simplification de la technologie et c'est pourquoi nous avons créé ce générateur de code barre gratuit et puissant. Notre objectif principal est de fournir un outil en ligne intuitif qui permet à quiconque de créer des codes barres de qualité professionnelle sans tracas ni coûts cachés. Que vous soyez une petite entreprise cherchant à étiqueter des produits avec un code barre generator, un organisateur d'événements ayant besoin de billets avec QR codes, ou simplement un curieux explorant la technologie des codes barres, notre plateforme est là pour vous.",
+  "aboutUsP2": "Chez {siteName}, nous croyons en l'accès libre aux outils utiles. C'est pourquoi notre generateur de code barre supporte une vaste gamme de symbologies, y compris EAN-13, UPC-A, Code 128, Code 39, QR Code, et bien d'autres. Nous nous efforçons continuellement d'améliorer notre plateforme, en ajoutant de nouvelles fonctionnalités et en veillant à ce que notre service reste le meilleur générateur code barre disponible gratuitement.",
+  "aboutUsP3": "Notre équipe est composée de développeurs et de designers dévoués qui travaillent pour s'assurer que votre expérience sur {siteName} soit fluide et efficace. Nous sommes fiers d'offrir un generateur de code barre qui est non seulement gratuit mais aussi respectueux de votre vie privée – nous ne stockons aucune des données que vous encodez avec notre code barre generator.",
+  "aboutUsP4": "Merci de choisir {siteName}. Nous espérons que notre outil de générateur code barre vous sera utile. N'hésitez pas à nous contacter si vous avez des suggestions ou des questions sur notre générateur de code barre gratuit.",
 
-  "pageTitleContactUs": "Contactez-Nous | CodeBarreGenerator.com",
-  "metaDescriptionContactUs": "Contactez l'équipe de CodeBarreGenerator.com pour toute question ou retour sur notre générateur de code barre. Nous sommes là pour vous aider.",
+  "pageTitleContactUs": "Contactez-Nous | Support pour Votre Générateur de Code Barre - CodeBarreGenerator.com",
+  "metaDescriptionContactUs": "Contactez l'équipe de CodeBarreGenerator.com pour toute question ou retour sur notre générateur de code barre. Nous sommes là pour vous aider avec notre service gratuit.",
   "contactUsTitle": "Contactez-Nous",
-  "contactUsP1": "Nous apprécions vos commentaires et sommes là pour répondre à toutes vos questions concernant CodeBarreGenerator.com et notre générateur de code barre.",
+  "contactUsP1": "Nous apprécions vos commentaires et sommes là pour répondre à toutes vos questions concernant {siteName} et notre générateur de code barre.",
   "contactUsP2": "Si vous avez des suggestions pour améliorer notre generateur de code barre, si vous rencontrez des difficultés techniques, ou si vous souhaitez simplement nous faire part de votre expérience, n'hésitez pas à nous joindre.",
-  "contactUsP3": "Vous pouvez nous contacter par email à l'adresse suivante : {email}.",
-  "contactUsP4": "Nous nous efforçons de répondre à toutes les demandes dans les plus brefs délais. Votre satisfaction est notre priorité et vos retours nous aident à faire de CodeBarreGenerator.com le meilleur code barre generator gratuit disponible.",
+  "contactUsP3": "Vous pouvez nous contacter par email à l'adresse suivante : {contactEmail}.",
+  "contactUsP4": "Nous nous efforçons de répondre à toutes les demandes dans les plus brefs délais. Votre satisfaction est notre priorité et vos retours nous aident à faire de {siteName} le meilleur code barre generator gratuit disponible.",
 
-  "pageTitlePrivacyPolicy": "Politique de Confidentialité | CodeBarreGenerator.com",
-  "metaDescriptionPrivacyPolicy": "Consultez la politique de confidentialité de CodeBarreGenerator.com. Apprenez comment nous protégeons vos informations lorsque vous utilisez notre générateur de code barre.",
-  "privacyPolicyLastUpdated": "Dernière mise à jour : 16 mai 2025",
+  "pageTitlePrivacyPolicy": "Politique de Confidentialité | CodeBarreGenerator.com - Générateur de Code Barre",
+  "metaDescriptionPrivacyPolicy": "Consultez la politique de confidentialité de {siteName}. Apprenez comment nous protégeons vos informations lorsque vous utilisez notre générateur de code barre gratuit.",
+  "privacyPolicyLastUpdated": "Dernière mise à jour : {date}",
+  "privacyPolicyIntro": "Bienvenue sur {siteName}. Nous respectons votre vie privée et nous nous engageons à la protéger. Cette politique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site Web et utilisez notre générateur de code barre.",
+  "privacyPolicySections": [
+    {
+      "title": "Collecte d'Informations",
+      "paragraphs": [
+        "Nous ne collectons aucune information personnelle identifiable lorsque vous utilisez notre {dictionary.siteName.toLowerCase()}. Les données que vous saisissez pour générer des codes-barres (par exemple, le texte pour un QR code ou les chiffres pour un code EAN) sont traitées exclusivement localement dans votre navigateur. Ces données ne sont jamais envoyées, stockées ou traitées sur nos serveurs. L'ensemble du processus de génération de code barre se déroule côté client.",
+        "Nous pouvons collecter des informations non personnelles identifiables concernant votre visite, telles que le type de navigateur, le système d'exploitation, les pages visitées (par exemple, si vous utilisez notre generateur de code barre pour différents types comme Code 128 ou EAN-13), et l'heure de la visite. Ces informations sont utilisées pour améliorer notre site Web et analyser les tendances d'utilisation. Nous utilisons des outils d'analyse standards pour cette collecte."
+      ]
+    },
+    {
+      "title": "Utilisation des Cookies",
+      "paragraphs": [
+        "{siteName} peut utiliser des cookies pour améliorer l'expérience utilisateur. Par exemple, des cookies peuvent être utilisés pour mémoriser vos préférences linguistiques ou les derniers paramètres utilisés sur notre code barre generator. Un cookie est un petit fichier de données stocké sur votre appareil. Vous pouvez configurer votre navigateur pour refuser tous les cookies ou pour vous alerter lorsque des cookies sont envoyés. Si vous désactivez les cookies, certaines fonctionnalités de notre générateur code barre pourraient ne pas fonctionner de manière optimale."
+      ]
+    },
+    {
+      "title": "Sécurité des Données",
+      "paragraphs": [
+        "Étant donné que les données que vous saisissez dans le générateur de code barre ne sont pas transmises à nos serveurs, le principal aspect de sécurité concerne la protection de votre propre appareil. Nous prenons des mesures raisonnables pour protéger les informations non personnelles que nous collectons (données d'analyse). Cependant, aucune transmission de données sur Internet ou méthode de stockage électronique n'est sécurisée à 100 %."
+      ]
+    },
+    {
+      "title": "Liens Vers des Sites Tiers",
+      "paragraphs": [
+        "Notre site peut contenir des liens vers d'autres sites Web. Nous ne sommes pas responsables des pratiques de confidentialité de ces autres sites. Nous vous encourageons à lire les politiques de confidentialité de chaque site que vous visitez."
+      ]
+    },
+    {
+      "title": "Vie Privée des Enfants",
+      "paragraphs": [
+        "Notre service de générateur code barre ne s'adresse pas aux personnes de moins de 13 ans. Nous ne collectons pas sciemment d'informations personnelles identifiables auprès d'enfants de moins de 13 ans."
+      ]
+    },
+    {
+      "title": "Modifications de cette Politique",
+      "paragraphs": [
+        "Nous pouvons mettre à jour cette politique de confidentialité de temps à autre pour refléter, par exemple, des changements dans nos pratiques ou pour d'autres raisons opérationnelles, légales ou réglementaires. Nous vous notifierons de tout changement en publiant la nouvelle politique sur cette page et en mettant à jour la date de \"Dernière mise à jour\" en haut de cette politique. Nous vous conseillons de consulter régulièrement cette politique de confidentialité pour prendre connaissance de toute modification."
+      ]
+    },
+    {
+      "title": "Nous Contacter",
+      "paragraphs": [
+        "Si vous avez des questions concernant cette politique de confidentialité ou nos pratiques en matière de données pour le {dictionary.siteName.toLowerCase()}, veuillez nous contacter à {contactEmail}."
+      ]
+    }
+  ],
 
-  "pageTitleTermsOfService": "Conditions d'Utilisation | CodeBarreGenerator.com",
-  "metaDescriptionTermsOfService": "Lisez les conditions d'utilisation de CodeBarreGenerator.com. En utilisant notre générateur de code barre, vous acceptez nos termes."
+  "pageTitleTermsOfService": "Conditions d'Utilisation | CodeBarreGenerator.com - Service Générateur de Code Barre",
+  "metaDescriptionTermsOfService": "Lisez les conditions d'utilisation de {siteName}. En utilisant notre générateur de code barre gratuit, vous acceptez nos termes et conditions.",
+  "termsOfServiceIntro": "Bienvenue sur {siteName} (le \"Site\"). En accédant ou en utilisant le Site et son générateur de code barre, vous acceptez d'être lié par ces Conditions d'Utilisation (\"Conditions\"). Si vous n'êtes pas d'accord avec une partie de ces conditions, vous ne pouvez pas accéder au Site.",
+  "termsOfServiceSections": [
+    {
+      "title": "Utilisation du Service",
+      "paragraphs": [
+        "{siteName} fournit un outil en ligne gratuit pour générer divers types de codes-barres (le \"Service\" ou \"générateur de code barre\"). Le Service est fourni \"tel quel\" et \"tel que disponible\" sans aucune garantie. Notre objectif est de fournir un generateur code barre fiable et facile à utiliser.",
+        "Vous acceptez d'utiliser le Service de notre code barre generator uniquement à des fins légales et conformément à toutes les lois applicables. Vous êtes seul responsable des données que vous saisissez pour générer des codes-barres (par exemple, les données pour un QR Code ou un Code 128) et de l'utilisation que vous faites des codes-barres générés par notre code barre generator. {siteName} n'assume aucune responsabilité quant à l'exactitude des données encodées ou à l'adéquation d'un type de code-barres particulier à votre usage spécifique."
+      ]
+    },
+    {
+      "title": "Propriété Intellectuelle",
+      "paragraphs": [
+        "Le Site et son contenu original (à l'exclusion des codes-barres générés par les utilisateurs), ses caractéristiques et ses fonctionnalités, y compris le design et le code du générateur de code barre, sont et resteront la propriété exclusive de {siteName} et de ses concédants de licence. Le Service est protégé par le droit d'auteur, les marques commerciales et d'autres lois. Les codes-barres que vous générez são les vôtres ; nous ne revendiquons aucun droit sur les images de codes-barres que vous créez avec notre generateur de code barre gratuit."
+      ]
+    },
+    {
+      "title": "Comportement de l'Utilisateur",
+      "paragraphs": [
+        "Vous acceptez de ne pas utiliser le service de générateur code barre pour :"
+      ],
+      "listItems": [
+        "Encoder des informations illégales, nuisibles, menaçantes, abusives, harcelantes, diffamatoires, vulgaires, obscènes, portant atteinte à la vie privée d'autrui, haineuses ou répréhensibles sur le plan racial, ethnique ou autre.",
+        "Usurper l'identité d'une personne ou d'une entité, ou déclarer faussement ou déformer votre affiliation avec une personne ou une entité.",
+        "Interférer avec ou perturber le Service ou les serveurs ou réseaux connectés au Service de notre code barre generator."
+      ]
+    },
+    {
+      "title": "Limitation de Responsabilité",
+      "paragraphs": [
+        "En aucun cas {siteName}, ni ses administrateurs, employés, partenaires, agents, fournisseurs ou affiliés, ne pourront être tenus responsables des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs, y compris, sans limitation, la perte de profits, de données, d'utilisation, de clientèle ou d'autres pertes incorporelles, résultant de (i) votre accès ou utilisation ou incapacité d'accéder ou d'utiliser le Service de générateur de code barre ; (ii) toute conduite ou contenu d'un tiers sur le Service ; (iii) tout contenu (codes-barres) obtenu à partir du Service ; et (iv) l'accès non autorisé, l'utilisation ou l'altération de vos transmissions ou de votre contenu, que ce soit sur la base d'une garantie, d'un contrat, d'un délit (y compris la négligence) ou de toute autre théorie juridique, que nous ayons été informés ou non de la possibilité de tels dommages, même si un recours énoncé dans les présentes s'avère avoir échoué dans son objectif essentiel. Notre responsabilité maximale pour toute réclamation découlant de votre utilisation de notre generateur code barre sera limitée au montant que vous nous avez payé, le cas échéant, pour l'utilisation du service."
+      ]
+    },
+    {
+      "title": "Modifications",
+      "paragraphs": [
+        "Nous nous réservons le droit, à notre seule discrétion, de modifier ou de remplacer ces Conditions à tout moment. Si une révision est importante, nous essaierons de fournir un préavis d'au moins 30 jours avant l'entrée en vigueur des nouvelles conditions. Ce qui constitue un changement important sera déterminé à notre seule discrétion. En continuant d'accéder ou d'utiliser notre générateur de code barre après l'entrée en vigueur de ces révisions, vous acceptez d'être lié par les conditions révisées."
+      ]
+    },
+    {
+      "title": "Résiliation",
+      "paragraphs": [
+        "Nous pouvons résilier ou suspendre l'accès à notre Service de code barre generator immédiatement, sans préavis ni responsabilité, pour quelque raison que ce soit, y compris, sans limitation, si vous ne respectez pas les Conditions."
+      ]
+    },
+    {
+      "title": "Droit Applicable",
+      "paragraphs": [
+       "Ces Conditions seront régies et interprétées conformément aux lois de la juridiction dans laquelle {siteName} opère, sans égard à ses dispositions relatives aux conflits de lois."
+      ]
+    },
+    {
+      "title": "Nous Contacter",
+      "paragraphs": [
+        "Si vous avez des questions concernant ces Conditions d'utilisation de notre générateur de code barre, veuillez nous contacter à {contactEmail}."
+      ]
+    }
+  ]
 }
-
