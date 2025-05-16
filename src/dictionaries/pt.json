@@ -33,6 +33,8 @@
   "downloadInitiated": "Download iniciado",
   "downloadFile": "Arquivo: {filename}",
   "errorInvalidData": "Dados inválidos para o tipo de código de barras selecionado.",
+  "errorInvalidDataTitle": "Dados Inválidos",
+  "errorInvalidDataDescription": "Os dados '{data}' não são válidos para o formato {format}.",
   "errorGenerationFailed": "A geração do código de barras falhou.",
   "errorDownloadFailed": "Falha no download.",
   "errorCanvasNotAvailable": "A pré-visualização do canvas não está disponível para download.",
@@ -77,5 +79,3 @@
   "dimensionsAndOptionsLabel": "Dimensões e Opções",
   "qrCodeSizeLabel": "Tamanho do QR Code"
 }
-
-    

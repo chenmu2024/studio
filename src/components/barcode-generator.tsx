@@ -49,7 +49,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
     { value: "ean13", label: dictionary.barcodeTypes.ean13, description: dictionary.barcodeTypes.ean13Description, validationKey: "ean13" },
     { value: "ean8", label: dictionary.barcodeTypes.ean8, description: dictionary.barcodeTypes.ean8Description, validationKey: "ean8" },
     { value: "upca", label: dictionary.barcodeTypes.upca, description: dictionary.barcodeTypes.upcaDescription, validationKey: "upca" },
-    { value: "upce", label: dictionary.barcodeTypes.upce, description: dictionary.barcodeTypes.upceDescription, validationKey: "upca" }, // UPC-E often derives from UPC-A
+    { value: "upce", label: dictionary.barcodeTypes.upce, description: dictionary.barcodeTypes.upceDescription, validationKey: "upca" },
     { value: "code39", label: dictionary.barcodeTypes.code39, description: dictionary.barcodeTypes.code39Description, validationKey: "code39" },
     { value: "qrcode", label: dictionary.barcodeTypes.qrcode, description: dictionary.barcodeTypes.qrcodeDescription, validationKey: "qrcode" },
   ] as const;
@@ -58,14 +58,12 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
   const dataInputHint = currentBarcodeTypeInfo ? dictionary.validation[currentBarcodeTypeInfo.validationKey as keyof typeof dictionary.validation] : "";
 
   const generateBarcode = useCallback(() => {
-    setValidationMessage(''); // Clear previous messages at the start of generation attempt
+    setValidationMessage(''); 
 
     try {
       if (options.format === "qrcode") {
         if (!qrCanvasRef.current) return;
         const canvas = qrCanvasRef.current;
-        // For QR codes, an empty string can be replaced by a space, or handled by the library.
-        // QRCode.toCanvas handles empty strings by typically erroring or drawing a minimal QR for " ".
         QRCode.toCanvas(canvas, data || " ", {
           width: options.width * 50 > 100 ? options.width * 50 : 200, 
           errorCorrectionLevel: options.qrErrorCorrectionLevel,
@@ -76,27 +74,25 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
           margin: options.margin / 10, 
         }, (error) => {
           if (error) {
-            console.error("QR Code generation error:", error);
             setValidationMessage(dictionary.errorGenerationFailed);
             toast({ title: dictionary.errorGenerationFailed, description: error.message, variant: "destructive" });
           }
         });
       } else { // 1D Barcodes
         if (!jsBarcodeSvgRef.current) return;
+        
+        jsBarcodeSvgRef.current.innerHTML = ''; // Proactively clear SVG
 
-        // Prevent JsBarcode call if data is effectively empty for 1D formats
         if (data.trim() === "") {
-          jsBarcodeSvgRef.current.innerHTML = ''; // Clear SVG
-          // Validation message is cleared at the start. Preview logic will show "Enter data...".
+          // No validation message, preview will show "Enter data..."
           return; 
         }
 
-        // Pre-validation for numeric types to prevent JsBarcode internal crash
         const numericFormats: BarcodeType[] = ["ean13", "ean8", "upca", "upce"];
         if (numericFormats.includes(options.format)) {
-          if (!/^\d+$/.test(data)) { // Ensure data contains only digits and is not empty
+          if (!/^\d+$/.test(data)) { 
             setValidationMessage(dictionary.errorInvalidData);
-            jsBarcodeSvgRef.current.innerHTML = ''; 
+            // SVG already cleared
             return;
           }
         }
@@ -115,26 +111,40 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
           valid: (validStatus: boolean) => {
             if (!validStatus) {
               setValidationMessage(dictionary.errorInvalidData);
+              if (jsBarcodeSvgRef.current) {
+                jsBarcodeSvgRef.current.innerHTML = ''; // Ensure SVG is cleared if JsBarcode says it's invalid
+              }
             }
           },
         });
       }
     } catch (e: any) {
-      console.error("Barcode generation error:", e); 
-      setValidationMessage(dictionary.errorGenerationFailed);
-      toast({ title: dictionary.errorGenerationFailed, description: e.message, variant: "destructive" });
+      // Handle known JsBarcode internal error for invalid data more gracefully
+      if (e && typeof e.message === 'string' && e.message.includes("api.options(...)[options.format] is not a function")) {
+        setValidationMessage(dictionary.errorInvalidData); // Treat as invalid data
+        toast({ 
+          title: dictionary.errorInvalidDataTitle, 
+          description: dictionary.errorInvalidDataDescription.replace('{format}', options.format).replace('{data}', data.substring(0,30)), 
+          variant: "destructive" 
+        });
+      } else {
+        // Handle other unexpected errors
+        console.error("Barcode generation error:", e); 
+        setValidationMessage(dictionary.errorGenerationFailed);
+        toast({ title: dictionary.errorGenerationFailed, description: e.message, variant: "destructive" });
+      }
+      
+      // Ensure preview is cleared on any error during generation
        if (options.format === 'qrcode' && qrCanvasRef.current) {
           const ctx = qrCanvasRef.current.getContext('2d');
           ctx?.clearRect(0, 0, qrCanvasRef.current.width, qrCanvasRef.current.height);
         } else if (jsBarcodeSvgRef.current) {
-          jsBarcodeSvgRef.current.innerHTML = '';
+          jsBarcodeSvgRef.current.innerHTML = ''; // Clear SVG on error
         }
     }
   }, [data, options, dictionary, toast]);
 
   useEffect(() => {
-    // If data is effectively empty (empty string or whitespace), clear validation and preview.
-    // The placeholder "Enter data to preview" will be shown by the preview logic.
     if (data.trim() === "") { 
       setValidationMessage(''); 
       if (qrCanvasRef.current && options.format === 'qrcode') {
@@ -144,9 +154,8 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
       if (jsBarcodeSvgRef.current && options.format !== 'qrcode') {
         jsBarcodeSvgRef.current.innerHTML = '';
       }
-      return; // Do not call generateBarcode if data is empty/whitespace
+      return; 
     }
-    // Otherwise, attempt to generate the barcode.
     generateBarcode();
   }, [data, options.format, generateBarcode]);
 
@@ -197,7 +206,6 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
                 URL.revokeObjectURL(url);
             });
         } else if (canvas) { 
-            // Check if canvas is blank (can happen if QR generation failed silently before error callback)
             const blankCanvas = document.createElement('canvas');
             blankCanvas.width = canvas.width;
             blankCanvas.height = canvas.height;
@@ -266,7 +274,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
                     svgHeight = parseFloat(parts[3]);
                 }
                 
-                if (!svgWidth || !svgHeight) { // Fallback to bounding rect if attributes/viewbox fail
+                if (!svgWidth || !svgHeight) { 
                     const rect = svgElement.getBoundingClientRect();
                     svgWidth = rect.width;
                     svgHeight = rect.height;
@@ -347,7 +355,6 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
               className="mt-1"
             />
              {dataInputHint && !validationMessage && data.trim() !== '' && <p className="mt-1 text-xs text-muted-foreground">{dataInputHint}</p>}
-             {/* Validation message is handled by the preview area now */}
           </div>
           
           <Card className="bg-background/50">
@@ -436,7 +443,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
             {data.trim() === '' ? (
               <p className="text-muted-foreground">{dictionary.enterDataToPreview}</p>
             ) : validationMessage ? (
-              <p className="text-destructive">{validationMessage}</p> // Using text-destructive for validation messages
+              <p className="text-destructive">{validationMessage}</p>
             ) : options.format === 'qrcode' ? (
               <canvas ref={qrCanvasRef} id="barcode-canvas-preview" />
             ) : (
@@ -460,5 +467,3 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
     </div>
   );
 }
-
-    
