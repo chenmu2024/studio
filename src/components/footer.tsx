@@ -13,10 +13,7 @@ export function Footer({ lang, dictionary }: FooterProps) {
   return (
     <footer className="py-8 mt-12 border-t border-border/50 bg-card">
       <div className="container mx-auto text-center text-muted-foreground px-4">
-        <p className="mb-2">
-          {dictionary.footerCopyright.replace('{year}', currentYear.toString())}
-        </p>
-        <nav className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4">
+        <nav className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 mb-4">
           <Link href={`/${lang}/about-us`} className="hover:text-primary transition-colors">
             {dictionary.footerAboutUs}
           </Link>
@@ -33,6 +30,9 @@ export function Footer({ lang, dictionary }: FooterProps) {
             {dictionary.footerContactUs}
           </Link>
         </nav>
+        <p className="mt-4">
+          {dictionary.footerCopyright.replace('{year}', currentYear.toString())}
+        </p>
       </div>
     </footer>
   );
