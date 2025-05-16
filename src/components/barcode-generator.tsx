@@ -58,13 +58,13 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
   const dataInputHint = currentBarcodeTypeInfo ? dictionary.validation[currentBarcodeTypeInfo.validationKey as keyof typeof dictionary.validation] : "";
 
   const generateBarcode = useCallback(() => {
-    setValidationMessage('');
+    setValidationMessage(''); // Clear previous messages at the start of generation attempt
 
     try {
       if (options.format === "qrcode") {
         if (!qrCanvasRef.current) return;
         const canvas = qrCanvasRef.current;
-        QRCode.toCanvas(canvas, data || " ", { // Provide a space if data is empty to avoid error
+        QRCode.toCanvas(canvas, data || " ", {
           width: options.width * 50 > 100 ? options.width * 50 : 200, 
           errorCorrectionLevel: options.qrErrorCorrectionLevel,
           color: {
@@ -79,8 +79,17 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
             toast({ title: dictionary.errorGenerationFailed, description: error.message, variant: "destructive" });
           }
         });
-      } else {
+      } else { // 1D Barcodes
         if (!jsBarcodeSvgRef.current) return;
+
+        // Pre-validation for numeric types to prevent JsBarcode internal crash
+        const numericFormats: BarcodeType[] = ["ean13", "ean8", "upca", "upce"];
+        if (numericFormats.includes(options.format) && !/^\d*$/.test(data)) {
+          setValidationMessage(dictionary.errorInvalidData);
+          jsBarcodeSvgRef.current.innerHTML = ''; // Clear SVG preview
+          return; // Stop before calling JsBarcode
+        }
+        
         // JsBarcode modifies the SVG element in place, clearing previous content.
         JsBarcode(jsBarcodeSvgRef.current, data, {
           format: options.format.toUpperCase(),
@@ -95,17 +104,17 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
           font: "Open Sans, sans-serif",
           valid: (valid: boolean) => {
             if (!valid) {
+              // This message might overwrite the pre-check message if JsBarcode itself finds it invalid later.
               setValidationMessage(dictionary.errorInvalidData);
-              // Do not toast here for invalid data, message is shown below input
             }
+            // No 'else clear' needed here as generateBarcode clears messages at the start.
           },
         });
       }
     } catch (e: any) {
-      console.error("Barcode generation error:", e);
+      console.error("Barcode generation error:", e); // This will log the error that was previously unhandled by the UI logic
       setValidationMessage(dictionary.errorGenerationFailed);
       toast({ title: dictionary.errorGenerationFailed, description: e.message, variant: "destructive" });
-      // Clear the barcode preview on error by clearing the data, which will trigger re-render
        if (options.format === 'qrcode' && qrCanvasRef.current) {
           const ctx = qrCanvasRef.current.getContext('2d');
           ctx?.clearRect(0, 0, qrCanvasRef.current.width, qrCanvasRef.current.height);
@@ -116,22 +125,21 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
   }, [data, options, dictionary, toast]);
 
   useEffect(() => {
-    // If there's no data, don't attempt to generate.
+    // If there's no data (empty string), don't attempt to generate.
     // The preview area will show "Enter data to preview" due to conditional rendering.
-    if (!data) {
-      setValidationMessage(''); // Clear any previous validation messages
-       // Explicitly clear canvas/SVG if they exist from a previous render with data
-      if (qrCanvasRef.current) {
+    if (!data) { // An empty string is falsy, so this condition is true for empty data.
+      setValidationMessage(''); 
+      if (qrCanvasRef.current && options.format === 'qrcode') {
         const ctx = qrCanvasRef.current.getContext('2d');
         ctx?.clearRect(0, 0, qrCanvasRef.current.width, qrCanvasRef.current.height);
       }
-      if (jsBarcodeSvgRef.current) {
+      if (jsBarcodeSvgRef.current && options.format !== 'qrcode') {
         jsBarcodeSvgRef.current.innerHTML = '';
       }
       return;
     }
     generateBarcode();
-  }, [data, generateBarcode]); // generateBarcode's own useCallback deps cover options, dictionary, toast
+  }, [data, options.format, generateBarcode]); // options.format is needed here for clearing logic
 
   const handleOptionChange = (key: keyof typeof options, value: any) => {
     setOptions(prev => ({ ...prev, [key]: value }));
@@ -143,8 +151,8 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
     const filename = `${filenameBase}_${safeData}_${options.format}.${format}`;
 
     if (options.format === 'qrcode') {
-        if (!qrCanvasRef.current && format !== 'svg') { // Need canvas for PNG/JPEG
-            toast({ title: dictionary.errorGenerationFailed, description: "Canvas not available.", variant: "destructive"});
+        if (!qrCanvasRef.current && format !== 'svg') { 
+            toast({ title: dictionary.errorDownloadFailed, description: dictionary.errorCanvasNotAvailable, variant: "destructive"});
             return;
         }
         const canvas = qrCanvasRef.current;
@@ -160,7 +168,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
                 margin: options.margin / 10,
              }, (err, svgString) => {
                 if (err) {
-                    toast({ title: dictionary.errorGenerationFailed, description: err.message, variant: "destructive"});
+                    toast({ title: dictionary.errorDownloadFailed, description: err.message, variant: "destructive"});
                     return;
                 }
                 const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
@@ -173,7 +181,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
                 document.body.removeChild(link);
                 URL.revokeObjectURL(url);
             });
-        } else if (canvas) { // PNG or JPEG from canvas
+        } else if (canvas) { 
             const url = canvas.toDataURL(`image/${format}`);
             const link = document.createElement('a');
             link.href = url;
@@ -182,12 +190,17 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
             link.click();
             document.body.removeChild(link);
         }
-    } else { // JsBarcode (SVG)
-        if (!jsBarcodeSvgRef.current) {
-             toast({ title: dictionary.errorGenerationFailed, description: "SVG element not available.", variant: "destructive"});
+    } else { 
+        if (!jsBarcodeSvgRef.current?.childNodes.length && format !== 'svg') { // Check if SVG has content for PNG/JPEG
+             toast({ title: dictionary.errorDownloadFailed, description: dictionary.errorSVGNotAvailable, variant: "destructive"});
             return;
         }
         const svgElement = jsBarcodeSvgRef.current;
+        if (!svgElement) {
+            toast({ title: dictionary.errorDownloadFailed, description: dictionary.errorSVGNotAvailable, variant: "destructive"});
+            return;
+        }
+
         const serializer = new XMLSerializer();
         let source = serializer.serializeToString(svgElement);
 
@@ -202,30 +215,42 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
         const svgUrl = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
 
         if (format === 'svg') {
+            if (!svgElement.childNodes.length) { // Check specifically for SVG download if content is missing
+                toast({ title: dictionary.errorDownloadFailed, description: dictionary.errorSVGEmpty, variant: "destructive"});
+                return;
+            }
             const link = document.createElement('a');
             link.href = svgUrl;
             link.download = filename;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-        } else { // PNG or JPEG from SVG
+        } else { 
             const img = new Image();
             img.onload = () => {
                 const canvas = document.createElement('canvas');
                 const dpr = window.devicePixelRatio || 1;
-                // Ensure SVG has explicit width and height for canvas conversion
-                const svgWidth = parseFloat(svgElement.getAttribute('width') || '0') || svgElement.getBoundingClientRect().width;
-                const svgHeight = parseFloat(svgElement.getAttribute('height') || '0') || svgElement.getBoundingClientRect().height;
+                
+                const svgWidthAttr = svgElement.getAttribute('width');
+                const svgHeightAttr = svgElement.getAttribute('height');
+
+                // Use explicit width/height from SVG if available, otherwise use bounding box
+                // JsBarcode typically sets width/height attributes on the SVG.
+                const svgWidth = parseFloat(svgWidthAttr || '0') || svgElement.getBoundingClientRect().width;
+                const svgHeight = parseFloat(svgHeightAttr || '0') || svgElement.getBoundingClientRect().height;
                 
                 if (svgWidth === 0 || svgHeight === 0) {
-                  toast({ title: dictionary.errorGenerationFailed, description: "SVG dimensions are zero.", variant: "destructive"});
+                  toast({ title: dictionary.errorDownloadFailed, description: dictionary.errorSVGDimensionsZero, variant: "destructive"});
                   return;
                 }
 
                 canvas.width = svgWidth * dpr;
                 canvas.height = svgHeight * dpr;
                 const ctx = canvas.getContext('2d');
-                if (!ctx) return;
+                if (!ctx) {
+                    toast({ title: dictionary.errorDownloadFailed, description: dictionary.errorCanvasContext, variant: "destructive" });
+                    return;
+                }
                 ctx.scale(dpr, dpr);
                 ctx.drawImage(img, 0, 0, svgWidth, svgHeight);
                 const dataUrl = canvas.toDataURL(`image/${format}`);
@@ -237,12 +262,14 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
                 document.body.removeChild(link);
             }
             img.onerror = () => {
-                 toast({ title: dictionary.errorGenerationFailed, description: "Failed to load SVG into image for conversion.", variant: "destructive"});
+                 toast({ title: dictionary.errorDownloadFailed, description: dictionary.errorImageLoadFailed, variant: "destructive"});
             }
             img.src = svgUrl;
         }
     }
-    toast({ title: dictionary.downloadInitiated, description: dictionary.downloadFile.replace('{filename}', filename) });
+    if (!validationMessage) { // Only toast success if there wasn't a validation error preventing generation
+        toast({ title: dictionary.downloadInitiated, description: dictionary.downloadFile.replace('{filename}', filename) });
+    }
   };
 
 
@@ -286,7 +313,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
               placeholder={dictionary.dataInputPlaceholder}
               className="mt-1"
             />
-             {dataInputHint && <p className="mt-1 text-xs text-muted-foreground">{dataInputHint}</p>}
+             {dataInputHint && !validationMessage && <p className="mt-1 text-xs text-muted-foreground">{dataInputHint}</p>}
              {validationMessage && <p className="mt-1 text-sm text-destructive">{validationMessage}</p>}
           </div>
           
@@ -373,8 +400,8 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
         </CardHeader>
         <CardContent className="flex flex-col items-center justify-center space-y-6 min-h-[300px] bg-muted/30 p-6 rounded-lg">
           <div className="p-4 bg-white shadow-md rounded max-w-full overflow-x-auto flex items-center justify-center" style={{ minHeight: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            {!data ? (
-              <p className="text-muted-foreground">{dictionary.enterDataToPreview}</p>
+            {(!data || validationMessage) && !(options.format === 'qrcode' && qrCanvasRef.current?.toDataURL().length > 100) && !(options.format !== 'qrcode' && jsBarcodeSvgRef.current?.childNodes.length > 0) ? (
+              <p className="text-muted-foreground">{validationMessage || dictionary.enterDataToPreview}</p>
             ) : options.format === 'qrcode' ? (
               <canvas ref={qrCanvasRef} id="barcode-canvas-preview" />
             ) : (
@@ -383,13 +410,13 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
           </div>
           
           <div className="flex flex-wrap gap-3 justify-center">
-            <Button onClick={() => handleDownload('png')} variant="default" disabled={!data}>
+            <Button onClick={() => handleDownload('png')} variant="default" disabled={!data || !!validationMessage}>
               <Download className="mr-2 h-4 w-4" /> {dictionary.downloadPNG}
             </Button>
-            <Button onClick={() => handleDownload('jpeg')} variant="secondary" disabled={!data}>
+            <Button onClick={() => handleDownload('jpeg')} variant="secondary" disabled={!data || !!validationMessage}>
               <Download className="mr-2 h-4 w-4" /> {dictionary.downloadJPEG}
             </Button>
-            <Button onClick={() => handleDownload('svg')} variant="outline" disabled={!data}>
+            <Button onClick={() => handleDownload('svg')} variant="outline" disabled={!data || !!validationMessage}>
               <Download className="mr-2 h-4 w-4" /> {dictionary.downloadSVG}
             </Button>
           </div>
