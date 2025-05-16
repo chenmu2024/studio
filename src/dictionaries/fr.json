@@ -24,7 +24,7 @@
   "previewLabel": "Aperçu du code-barres :",
   "previewDescription": "Votre code-barres généré apparaîtra ici. Téléchargez-le dans votre format préféré.",
   "previewLoading": "Génération de l'aperçu...",
-  "enterDataToPreview": "Veuillez entrer des données pour afficher l'aperçu.",
+  "enterDataToPreview": "Veuillez entrer des données pour afficher l'aperçu du code barre.",
   "downloadButton": "Télécharger",
   "downloadOptions": "Options de téléchargement",
   "downloadPNG": "Télécharger PNG",
@@ -34,7 +34,7 @@
   "downloadFile": "Fichier: {filename}",
   "errorInvalidData": "Données invalides pour le type de code-barres sélectionné.",
   "errorInvalidDataTitle": "Données Invalides",
-  "errorInvalidDataDescription": "Les données '{data}' ne sont pas valides pour le format {format}. Veuillez vérifier les exigences du format.",
+  "errorInvalidDataDescription": "Les données '{data}' ne sont pas valides pour le format {format} de notre generateur code barre. Veuillez vérifier les exigences du format.",
   "errorGenerationFailed": "La génération du code-barres a échoué. Veuillez réessayer ou vérifier vos données.",
   "errorDownloadFailed": "Échec du téléchargement.",
   "errorCanvasNotAvailable": "L'aperçu du canvas n'est pas disponible pour le téléchargement.",
@@ -78,5 +78,91 @@
   "switchToFrench": "Français",
   "appearanceLabel": "Apparence",
   "dimensionsAndOptionsLabel": "Dimensions & Options",
-  "qrCodeSizeLabel": "Taille du QR Code"
+  "qrCodeSizeLabel": "Taille du QR Code",
+
+  "howToUseTitle": "Comment utiliser notre générateur de code barre gratuit ?",
+  "howToUseIntro": "Notre generateur de code barre est conçu pour être simple et intuitif. Suivez ces étapes pour créer votre code barre personnalisé :",
+  "howToUseSteps": [
+    {
+      "title": "Étape 1 : Sélectionnez le Type de Code Barre",
+      "description": "Choisissez parmi une vaste gamme de formats supportés par notre code barre generator, incluant EAN-13, EAN-8, UPC-A, Code 128, QR Code, et bien d'autres. Chaque type a ses propres spécificités, adaptées à différents besoins."
+    },
+    {
+      "title": "Étape 2 : Entrez vos Données",
+      "description": "Saisissez les informations que vous souhaitez encoder. Cela peut être une série de chiffres pour un code EAN, du texte ou une URL pour un QR Code. Notre générateur de code barre validera les données pour certains formats."
+    },
+    {
+      "title": "Étape 3 : Personnalisez l'Apparence",
+      "description": "Ajustez les couleurs du code et du fond, la hauteur, la largeur des modules (pour les codes 1D) ou la taille (pour les QR Codes). Vous pouvez même opter pour un fond transparent ou afficher le texte sous le code barre."
+    },
+    {
+      "title": "Étape 4 : Prévisualisez et Générez",
+      "description": "Visualisez instantanément le résultat de vos configurations. Notre générateur code barre met à jour l'aperçu en temps réel. Assurez-vous que tout est correct."
+    },
+    {
+      "title": "Étape 5 : Téléchargez votre Code Barre",
+      "description": "Une fois satisfait, téléchargez votre code barre aux formats PNG, JPEG ou SVG. C'est simple, rapide et notre générateur de code barre est gratuit !"
+    }
+  ],
+  "howToUseOutro": "Avec CodeBarreGenerator.com, la création de codes barres n'a jamais été aussi facile. Profitez de notre outil complet, le meilleur generateur de code barre en ligne.",
+
+  "whyChooseUsTitle": "Pourquoi choisir CodeBarreGenerator.com ?",
+  "whyChooseUsIntro": "Dans un monde où l'efficacité et la simplicité sont primordiales, notre générateur de code barre se distingue. Voici pourquoi des milliers d'utilisateurs font confiance à notre code barre generator :",
+  "whyChooseUsPoints": [
+    {
+      "title": "Totalement Gratuit",
+      "description": "Notre générateur de code barre est entièrement gratuit, sans aucune limitation. Créez autant de codes barres que vous le souhaitez, sans frais cachés. C'est un service de generateur code barre gratuit de A à Z."
+    },
+    {
+      "title": "Facile à Utiliser",
+      "description": "Avec une interface intuitive, même les débutants peuvent générer des codes barres professionnels en quelques clics. Pas besoin de compétences techniques pour utiliser notre générateur de code barre."
+    },
+    {
+      "title": "Polyvalent",
+      "description": "Nous supportons une large gamme de types de codes barres, des standards EAN/UPC aux QR Codes dynamiques et Code 128. Notre code barre generator s'adapte à vos besoins."
+    },
+    {
+      "title": "Personnalisation Avancée",
+      "description": "Contrôlez l'apparence de vos codes barres : couleurs, dimensions, affichage du texte, et plus encore. Le générateur code barre vous donne le contrôle créatif."
+    },
+    {
+      "title": "Téléchargements Multi-Formats",
+      "description": "Obtenez vos codes barres en PNG, JPEG ou SVG pour une intégration parfaite dans tous vos projets, qu'ils soient numériques ou imprimés. Notre generateur de code barre vous offre la flexibilité."
+    },
+    {
+      "title": "Rapide et Fiable",
+      "description": "Générez et téléchargez vos codes barres en quelques secondes. Notre plateforme est optimisée pour la vitesse et la précision, faisant de nous un générateur code barre de confiance."
+    }
+  ],
+  "whyChooseUsOutro": "Faites l'expérience de la simplicité et de la puissance avec notre générateur de code barre. CodeBarreGenerator.com est votre solution unique pour tous vos besoins de génération de codes barres.",
+
+  "faqTitle": "FAQ - Questions Fréquentes sur notre Générateur de Code Barre",
+  "faqIntro": "Vous avez des questions sur notre generateur de code barre ? Trouvez les réponses ici. Si vous ne trouvez pas ce que vous cherchez, n'hésitez pas à nous contacter.",
+  "faqItems": [
+    {
+      "question": "L'utilisation de ce générateur de code barre est-elle vraiment gratuite ?",
+      "answer": "Absolument ! CodeBarreGenerator.com est un générateur de code barre gratuit. Vous pouvez créer et télécharger autant de codes barres que nécessaire sans aucun coût."
+    },
+    {
+      "question": "Quels types de codes barres puis-je créer avec ce code barre generator ?",
+      "answer": "Notre générateur code barre supporte de nombreux formats, y compris EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, et QR Code. Nous couvrons la plupart des besoins courants et professionnels."
+    },
+    {
+      "question": "Puis-je utiliser les codes barres générés à des fins commerciales ?",
+      "answer": "Oui, les codes barres créés avec notre generateur de code barre peuvent être utilisés à des fins personnelles et commerciales. Assurez-vous que les données encodées respectent les standards de l'industrie si vous les utilisez pour des produits vendus au détail."
+    },
+    {
+      "question": "Comment puis-je m'assurer que mon code barre est lisible ?",
+      "answer": "Notre générateur de code barre est conçu pour créer des codes conformes. Pour une lisibilité optimale, utilisez un bon contraste entre les barres et le fond, et assurez-vous que la taille est suffisante pour votre scanner. Testez toujours le code barre généré."
+    },
+    {
+      "question": "Dois-je m'inscrire pour utiliser le générateur code barre ?",
+      "answer": "Non, aucune inscription n'est requise. Notre générateur de code barre gratuit est accessible directement et vous pouvez commencer à créer vos codes immédiatement."
+    },
+    {
+      "question": "Le format SVG est-il meilleur pour l'impression ?",
+      "answer": "Oui, le format SVG (Scalable Vector Graphics) est idéal pour l'impression car il peut être redimensionné sans perte de qualité. Notre code barre generator vous le propose pour une qualité professionnelle."
+    }
+  ],
+  "faqOutro": "Nous espérons que cette FAQ a répondu à vos interrogations. CodeBarreGenerator.com s'engage à fournir le meilleur service de générateur de code barre gratuit et facile d'accès."
 }
