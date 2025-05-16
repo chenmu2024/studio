@@ -1,3 +1,4 @@
+
 {
   "siteName": "CodeBarreGenerator.com",
   "pageTitle": "Gerador de Código de Barras Gratuito Online | Crie Já Seus Códigos",
@@ -21,12 +22,16 @@
     "H": "H (Alto ~30%)"
   },
   "previewLabel": "Pré-visualização do código de barras:",
+  "previewDescription": "Seu código de barras gerado aparecerá aqui. Faça o download no seu formato preferido.",
   "previewLoading": "A gerar pré-visualização...",
+  "enterDataToPreview": "Por favor, insira dados para ver a pré-visualização.",
   "downloadButton": "Baixar",
   "downloadOptions": "Opções de download",
   "downloadPNG": "Baixar PNG",
   "downloadJPEG": "Baixar JPEG",
   "downloadSVG": "Baixar SVG",
+  "downloadInitiated": "Download iniciado",
+  "downloadFile": "Arquivo: {filename}",
   "errorInvalidData": "Dados inválidos para o tipo de código de barras selecionado.",
   "errorGenerationFailed": "A geração do código de barras falhou.",
   "validation": {
@@ -58,5 +63,8 @@
   "footerTermsOfService": "Termos de Serviço",
   "languageSwitcherLabel": "Idioma:",
   "switchToPortuguese": "Português",
-  "switchToFrench": "Français"
+  "switchToFrench": "Français",
+  "appearanceLabel": "Aparência",
+  "dimensionsAndOptionsLabel": "Dimensões e Opções",
+  "qrCodeSizeLabel": "Tamanho do QR Code"
 }

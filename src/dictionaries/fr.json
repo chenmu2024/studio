@@ -1,3 +1,4 @@
+
 {
   "siteName": "CodeBarreGenerator.com",
   "pageTitle": "Générateur de Code Barre Gratuit et Efficace | Créez Vos Codes en Ligne",
@@ -21,12 +22,16 @@
     "H": "H (Haut ~30%)"
   },
   "previewLabel": "Aperçu du code-barres :",
+  "previewDescription": "Votre code-barres généré apparaîtra ici. Téléchargez-le dans votre format préféré.",
   "previewLoading": "Génération de l'aperçu...",
+  "enterDataToPreview": "Veuillez entrer des données pour afficher l'aperçu.",
   "downloadButton": "Télécharger",
   "downloadOptions": "Options de téléchargement",
   "downloadPNG": "Télécharger PNG",
   "downloadJPEG": "Télécharger JPEG",
   "downloadSVG": "Télécharger SVG",
+  "downloadInitiated": "Téléchargement initié",
+  "downloadFile": "Fichier: {filename}",
   "errorInvalidData": "Données invalides pour le type de code-barres sélectionné.",
   "errorGenerationFailed": "La génération du code-barres a échoué.",
   "validation": {
@@ -58,5 +63,8 @@
   "footerTermsOfService": "Conditions d'utilisation",
   "languageSwitcherLabel": "Langue:",
   "switchToPortuguese": "Português",
-  "switchToFrench": "Français"
+  "switchToFrench": "Français",
+  "appearanceLabel": "Apparence",
+  "dimensionsAndOptionsLabel": "Dimensions & Options",
+  "qrCodeSizeLabel": "Taille du QR Code"
 }
