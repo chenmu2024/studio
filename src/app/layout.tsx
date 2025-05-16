@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.codebarregenerator.com'),
   openGraph: {
     title: 'CodeBarreGenerator.com - Générateur de Code Barre Gratuit',
-    description: 'Générez facilement des codes barres EAN, QR, Code 128 et plus avec notre outil en ligne.',
+    description: 'Générez facilement des codes barres EAN, QR, Code 128 et plus. Personnalisable et gratuit. CodeBarreGenerator.com: simple, rapide et gratuit.',
     url: 'https://www.codebarregenerator.com',
     siteName: 'CodeBarreGenerator.com',
     images: [
@@ -37,7 +37,8 @@ export const metadata: Metadata = {
         url: '/og-image.png', // Updated to reference local public image
         width: 1200,
         height: 630,
-        alt: 'Logo de CodeBarreGenerator.com - Générateur de code barre en ligne',
+        alt: 'Logo de CodeBarreGenerator.com et exemples de codes barres générés - generateur code barre',
+        'data-ai-hint': 'barcode social media' as any,
       },
     ],
     locale: 'fr_FR', // Default locale
@@ -51,9 +52,9 @@ export const metadata: Metadata = {
     // siteId: 'YourTwitterSiteID', // Optional: Your Twitter user ID
     // creator: '@YourTwitterHandle', // Optional: Your Twitter handle
     // creatorId: 'YourTwitterCreatorID', // Optional: Your Twitter user ID for the content creator
-    images: ['/twitter-image.png'], // Updated to reference local public image
+    images: ['/twitter-image.png?data-ai-hint=barcode-twitter-card'], // Updated to reference local public image
   },
-  icons: { // Uncommented and updated favicon links
+  icons: { 
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
