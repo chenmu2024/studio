@@ -29,15 +29,15 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.codebarregenerator.com'),
   openGraph: {
     title: 'CodeBarreGenerator.com - Générateur de Code Barre Gratuit',
-    description: 'Générez facilement des codes barres EAN, QR, Code 128 et plus.',
+    description: 'Générez facilement des codes barres EAN, QR, Code 128 et plus avec notre outil en ligne.',
     url: 'https://www.codebarregenerator.com',
     siteName: 'CodeBarreGenerator.com',
     images: [
       {
-        url: 'https://www.codebarregenerator.com/og-image.png', // Replace with actual OG image URL
+        url: 'https://www.codebarregenerator.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'CodeBarreGenerator.com',
+        alt: 'Logo de CodeBarreGenerator.com - Générateur de code barre en ligne',
         // @ts-ignore
         'data-ai-hint': 'barcode social media' 
       },
@@ -48,12 +48,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CodeBarreGenerator.com - Générateur de Code Barre Gratuit',
-    description: 'Générez facilement des codes barres EAN, QR, Code 128 et plus.',
+    title: 'CodeBarreGenerator.com - Générateur de Code Barre Gratuit et Efficace',
+    description: 'Créez et personnalisez vos codes barres (EAN, QR, etc.) gratuitement sur CodeBarreGenerator.com.',
     // siteId: 'YourTwitterSiteID', // Optional: Your Twitter user ID
     // creator: '@YourTwitterHandle', // Optional: Your Twitter handle
     // creatorId: 'YourTwitterCreatorID', // Optional: Your Twitter user ID for the content creator
-    images: ['https://www.codebarregenerator.com/twitter-image.png?data-ai-hint=barcode_social_media'], // Replace with actual Twitter image URL, data-ai-hint added as query for now
+    images: ['https://www.codebarregenerator.com/twitter-image.png?data-ai-hint=barcode_social_media&alt=Illustration_CodeBarreGenerator.com_outil_en_ligne'], // Replace with actual Twitter image URL, data-ai-hint and improved alt added as query for now
   },
   // icons: { // Add favicon links if you have them
   //   icon: '/favicon.ico',

@@ -384,7 +384,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
             
             <Card className="bg-background/50">
               <CardHeader className="pb-2">
-                  <CardTitle className="text-lg flex items-center"><Palette className="mr-2 h-5 w-5 text-accent"/>{dictionary.appearanceLabel || "Apparence"}</CardTitle>
+                  <CardTitle className="text-lg flex items-center"><Palette className="mr-2 h-5 w-5 text-accent"/>{dictionary.appearanceLabel}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 pt-2">
                   <div className="grid grid-cols-2 gap-4">
@@ -413,7 +413,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
 
           <Card className="bg-background/50">
               <CardHeader className="pb-2">
-                  <CardTitle className="text-lg flex items-center"><Text className="mr-2 h-5 w-5 text-accent"/>{dictionary.dimensionsAndOptionsLabel || "Dimensions & Options"}</CardTitle>
+                  <CardTitle className="text-lg flex items-center"><Text className="mr-2 h-5 w-5 text-accent"/>{dictionary.dimensionsAndOptionsLabel}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 pt-2">
                   {options.format !== 'qrcode' ? (
@@ -429,7 +429,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
                       </>
                   ) : (
                       <div>
-                          <Label htmlFor="qrCodeSize">{dictionary.qrCodeSizeLabel || "Taille du QR Code"} ({options.width})</Label>
+                          <Label htmlFor="qrCodeSize">{dictionary.qrCodeSizeLabel} ({options.width})</Label>
                           <Slider id="qrCodeSize" min={2} max={10} step={1} value={[options.width]} onValueChange={([val]) => handleOptionChange('width', val)} className="mt-1" />
                       </div>
                   )}
@@ -573,5 +573,3 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
     </>
   );
 }
-
-    

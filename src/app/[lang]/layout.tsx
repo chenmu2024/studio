@@ -6,22 +6,6 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { i18n } from '@/i18n-config';
 
-// This function is not needed if RootLayout already handles static params for lang
-// export async function generateStaticParams() {
-//   return i18n.locales.map((locale) => ({ lang: locale }));
-// }
-
-// This metadata would override the root if defined. 
-// Generally, keep main metadata in root layout and specify language-specific alternates there.
-// export async function generateMetadata({ params: { lang } }: { params: { lang: Locale } }): Promise<Metadata> {
-//   const dictionary = await getDictionary(lang);
-//   return {
-//     title: dictionary.pageTitle,
-//     description: dictionary.metaDescription,
-//   };
-// }
-
-
 export default async function LocaleLayout({
   children,
   params: { lang },
@@ -52,4 +36,3 @@ export default async function LocaleLayout({
     </>
   );
 }
-

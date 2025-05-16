@@ -1,3 +1,4 @@
+
 import type { Locale } from '@/i18n-config';
 import type { Dictionary } from '@/lib/dictionaries';
 import Link from 'next/link';
@@ -6,7 +7,7 @@ import { Barcode } from 'lucide-react';
 
 interface HeaderProps {
   lang: Locale;
-  dictionary: Dictionary['header'] & Pick<Dictionary, 'siteName' | 'switchToFrench' | 'switchToPortuguese' | 'languageSwitcherLabel'>;
+  dictionary: Pick<Dictionary, 'siteName' | 'switchToFrench' | 'switchToPortuguese' | 'languageSwitcherLabel'>;
 }
 
 export function Header({ lang, dictionary }: HeaderProps) {
