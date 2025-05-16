@@ -49,6 +49,7 @@
     "ean13": "Insira 12 dígitos (o dígito de controlo será calculado).",
     "ean8": "Insira 7 dígitos (o dígito de controlo será calculado).",
     "upca": "Insira 11 dígitos (o dígito de controlo será calculado).",
+    "upce": "Insira 6, 7, 8, 11 ou 12 dígitos.",
     "code128": "Insira caracteres alfanuméricos.",
     "code39": "Insira letras maiúsculas (A-Z), números (0-9) e símbolos (- . $ / + % espaço).",
     "qrcode": "Insira texto, URL, etc."
@@ -61,7 +62,7 @@
     "upca": "UPC-A",
     "upcaDescription": "Usado principalmente nos EUA e Canadá para produtos de retalho. Requer 11 dígitos de dados (o 12º é um dígito de controlo).",
     "upce": "UPC-E",
-    "upceDescription": "Versão comprimida do UPC-A para embalagens pequenas.",
+    "upceDescription": "Versão comprimida do UPC-A para embalagens pequenas. Aceita 6, 7, 8, 11 ou 12 dígitos.",
     "code128": "Code 128",
     "code128Description": "Código de barras alfanumérico de alta densidade, muito versátil. Suporta o conjunto completo de 128 caracteres ASCII.",
     "code39": "Code 39",
@@ -79,3 +80,5 @@
   "dimensionsAndOptionsLabel": "Dimensões e Opções",
   "qrCodeSizeLabel": "Tamanho do QR Code"
 }
+
+    

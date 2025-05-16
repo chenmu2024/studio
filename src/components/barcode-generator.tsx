@@ -25,7 +25,7 @@ const initialBarcodeOptions = {
   format: "code128" as BarcodeType,
   lineColor: "#000000",
   background: "#ffffff",
-  width: 2, // module width for 1D, or pixel size for QR
+  width: 2, // module width for 1D, or pixel size factor for QR
   height: 100,
   displayValue: true, // Show text below barcode
   textMargin: 2,
@@ -49,7 +49,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
     { value: "ean13", label: dictionary.barcodeTypes.ean13, description: dictionary.barcodeTypes.ean13Description, validationKey: "ean13" },
     { value: "ean8", label: dictionary.barcodeTypes.ean8, description: dictionary.barcodeTypes.ean8Description, validationKey: "ean8" },
     { value: "upca", label: dictionary.barcodeTypes.upca, description: dictionary.barcodeTypes.upcaDescription, validationKey: "upca" },
-    { value: "upce", label: dictionary.barcodeTypes.upce, description: dictionary.barcodeTypes.upceDescription, validationKey: "upca" },
+    { value: "upce", label: dictionary.barcodeTypes.upce, description: dictionary.barcodeTypes.upceDescription, validationKey: "upce" },
     { value: "code39", label: dictionary.barcodeTypes.code39, description: dictionary.barcodeTypes.code39Description, validationKey: "code39" },
     { value: "qrcode", label: dictionary.barcodeTypes.qrcode, description: dictionary.barcodeTypes.qrcodeDescription, validationKey: "qrcode" },
   ] as const;
@@ -64,14 +64,15 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
       if (options.format === "qrcode") {
         if (!qrCanvasRef.current) return;
         const canvas = qrCanvasRef.current;
+        const qrCanvasSize = Math.max(150, options.width * 25); // Simplified and ensures minimum size
         QRCode.toCanvas(canvas, data || " ", {
-          width: options.width * 50 > 100 ? options.width * 50 : 200, 
+          width: qrCanvasSize, 
           errorCorrectionLevel: options.qrErrorCorrectionLevel,
           color: {
             dark: options.lineColor,
             light: options.transparentBackground ? "#00000000" : options.background,
           },
-          margin: options.margin / 10, 
+          margin: options.margin / 10, // QR Code library's margin is in modules
         }, (error) => {
           if (error) {
             setValidationMessage(dictionary.errorGenerationFailed);
@@ -84,13 +85,13 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
         jsBarcodeSvgRef.current.innerHTML = ''; // Proactively clear SVG
 
         if (data.trim() === "") {
-          // No validation message, preview will show "Enter data..."
+          // No validation message if data is empty, preview will show "Enter data..."
           return; 
         }
 
         const numericFormats: BarcodeType[] = ["ean13", "ean8", "upca", "upce"];
         if (numericFormats.includes(options.format)) {
-          if (!/^\d+$/.test(data)) { 
+          if (!/^\d+$/.test(data)) { // Ensure data is all digits and not empty
             setValidationMessage(dictionary.errorInvalidData);
             // SVG already cleared
             return;
@@ -119,27 +120,24 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
         });
       }
     } catch (e: any) {
-      // Handle known JsBarcode internal error for invalid data more gracefully
       if (e && typeof e.message === 'string' && e.message.includes("api.options(...)[options.format] is not a function")) {
-        setValidationMessage(dictionary.errorInvalidData); // Treat as invalid data
+        setValidationMessage(dictionary.errorInvalidData); 
         toast({ 
           title: dictionary.errorInvalidDataTitle, 
           description: dictionary.errorInvalidDataDescription.replace('{format}', options.format).replace('{data}', data.substring(0,30)), 
           variant: "destructive" 
         });
       } else {
-        // Handle other unexpected errors
         console.error("Barcode generation error:", e); 
         setValidationMessage(dictionary.errorGenerationFailed);
         toast({ title: dictionary.errorGenerationFailed, description: e.message, variant: "destructive" });
       }
       
-      // Ensure preview is cleared on any error during generation
        if (options.format === 'qrcode' && qrCanvasRef.current) {
           const ctx = qrCanvasRef.current.getContext('2d');
           ctx?.clearRect(0, 0, qrCanvasRef.current.width, qrCanvasRef.current.height);
         } else if (jsBarcodeSvgRef.current) {
-          jsBarcodeSvgRef.current.innerHTML = ''; // Clear SVG on error
+          jsBarcodeSvgRef.current.innerHTML = ''; 
         }
     }
   }, [data, options, dictionary, toast]);
@@ -157,9 +155,26 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
       return; 
     }
     generateBarcode();
-  }, [data, options.format, generateBarcode]);
+  }, [data, options.format, generateBarcode]); // generateBarcode dependency is fine here
 
+  const handleFormatChange = (newFormat: BarcodeType) => {
+    let newWidth = options.width;
+    const isNewFormatQr = newFormat === 'qrcode';
 
+    if (isNewFormatQr) {
+      // If current width is outside QR range [2,10], reset to default QR width (4)
+      if (options.width < 2 || options.width > 10) {
+        newWidth = 4;
+      }
+    } else { // New format is 1D
+      // If current width is outside 1D range [1,5], reset to default 1D width (2)
+      if (options.width < 1 || options.width > 5) {
+        newWidth = 2;
+      }
+    }
+    setOptions(prev => ({ ...prev, format: newFormat, width: newWidth }));
+  };
+  
   const handleOptionChange = (key: keyof typeof options, value: any) => {
     setOptions(prev => ({ ...prev, [key]: value }));
   };
@@ -209,7 +224,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
             const blankCanvas = document.createElement('canvas');
             blankCanvas.width = canvas.width;
             blankCanvas.height = canvas.height;
-            if (canvas.toDataURL() === blankCanvas.toDataURL()) {
+            if (canvas.toDataURL() === blankCanvas.toDataURL()) { // Check if canvas is effectively blank
                  toast({ title: dictionary.errorDownloadFailed, description: dictionary.errorQRCodePreviewEmpty, variant: "destructive"});
                  return;
             }
@@ -221,7 +236,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
             link.click();
             document.body.removeChild(link);
         }
-    } else { 
+    } else { // 1D Barcodes
         if (!jsBarcodeSvgRef.current?.childNodes.length && format !== 'svg') { 
              toast({ title: dictionary.errorDownloadFailed, description: dictionary.errorSVGNotAvailable, variant: "destructive"});
             return;
@@ -256,7 +271,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-        } else { 
+        } else { // PNG/JPEG for 1D
             const img = new Image();
             img.onload = () => {
                 const canvas = document.createElement('canvas');
@@ -330,7 +345,7 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
             <Label htmlFor="barcodeType">{dictionary.barcodeTypeLabel}</Label>
             <Select
               value={options.format}
-              onValueChange={(value) => handleOptionChange('format', value as BarcodeType)}
+              onValueChange={(value) => handleFormatChange(value as BarcodeType)}
             >
               <SelectTrigger id="barcodeType">
                 <SelectValue placeholder={dictionary.barcodeTypeLabel} />
@@ -467,3 +482,5 @@ export function BarcodeGenerator({ dictionary }: BarcodeGeneratorProps) {
     </div>
   );
 }
+
+    

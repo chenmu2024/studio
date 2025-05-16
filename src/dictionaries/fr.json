@@ -49,6 +49,7 @@
     "ean13": "Entrez 12 chiffres (la clé de contrôle sera calculée).",
     "ean8": "Entrez 7 chiffres (la clé de contrôle sera calculée).",
     "upca": "Entrez 11 chiffres (la clé de contrôle sera calculée).",
+    "upce": "Entrez 6, 7, 8, 11 ou 12 chiffres.",
     "code128": "Entrez des caractères alphanumériques.",
     "code39": "Entrez des lettres majuscules (A-Z), chiffres (0-9) et symboles (- . $ / + % espace).",
     "qrcode": "Entrez du texte, une URL, etc."
@@ -61,7 +62,7 @@
     "upca": "UPC-A",
     "upcaDescription": "Principalement utilisé aux États-Unis et au Canada pour les produits de détail. Nécessite 11 chiffres de données (le 12ème est une clé de contrôle).",
     "upce": "UPC-E",
-    "upceDescription": "Version compressée de l'UPC-A pour les petits emballages.",
+    "upceDescription": "Version compressée de l'UPC-A pour les petits emballages. Accepte 6, 7, 8, 11 ou 12 chiffres.",
     "code128": "Code 128",
     "code128Description": "Code-barres alphanumérique haute densité, très polyvalent. Supporte l'ensemble des 128 caractères ASCII.",
     "code39": "Code 39",
@@ -79,3 +80,5 @@
   "dimensionsAndOptionsLabel": "Dimensions & Options",
   "qrCodeSizeLabel": "Taille du QR Code"
 }
+
+    
