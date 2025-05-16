@@ -1,3 +1,4 @@
+export const runtime = 'edge'; // <--- 添加这一行
 
 import type { Metadata, Viewport } from 'next';
 import { getDictionary } from '@/lib/dictionaries';
@@ -17,7 +18,7 @@ export default async function LocaleLayout({
 
   return (
     <>
-      <Header lang={lang} dictionary={{ 
+      <Header lang={lang} dictionary={{
         siteName: dictionary.siteName,
         switchToFrench: dictionary.switchToFrench,
         switchToPortuguese: dictionary.switchToPortuguese,
