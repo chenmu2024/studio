@@ -73,6 +73,8 @@
   "footerCopyright": "© {year} CodeBarreGenerator.com. Todos os direitos reservados.",
   "footerPrivacyPolicy": "Política de Privacidade",
   "footerTermsOfService": "Termos de Serviço",
+  "footerAboutUs": "Sobre Nós",
+  "footerContactUs": "Contacte-nos",
   "languageSwitcherLabel": "Idioma:",
   "switchToPortuguese": "Português",
   "switchToFrench": "Français",
@@ -164,5 +166,29 @@
       "answer": "Sim, o formato SVG (Scalable Vector Graphics) é ideal para impressão, pois pode ser redimensionado sem perda de qualidade. O nosso código de barras gerador oferece-o para uma qualidade profissional."
     }
   ],
-  "faqOutro": "Esperamos que esta FAQ tenha respondido às suas questões. CodeBarreGenerator.com compromete-se a fornecer o melhor serviço de gerador de código de barras gratuito e de fácil acesso."
+  "faqOutro": "Esperamos que esta FAQ tenha respondido às suas questões. CodeBarreGenerator.com compromete-se a fornecer o melhor serviço de gerador de código de barras gratuito e de fácil acesso.",
+
+  "pageTitleAboutUs": "Sobre Nós | CodeBarreGenerator.com",
+  "metaDescriptionAboutUs": "Saiba mais sobre o CodeBarreGenerator.com, o seu recurso número um para um gerador de código de barras gratuito, rápido e confiável. Descubra a nossa missão.",
+  "aboutUsTitle": "Sobre o CodeBarreGenerator.com",
+  "aboutUsP1": "Bem-vindo ao CodeBarreGenerator.com! Somos apaixonados por simplificar a tecnologia e é por isso que criámos este gerador de código de barras. O nosso principal objetivo é fornecer uma ferramenta online gratuita, intuitiva e poderosa que permita a qualquer pessoa criar códigos de barras de qualidade profissional sem complicações ou custos ocultos. Quer seja uma pequena empresa que procura etiquetar produtos, um organizador de eventos que necessita de bilhetes com códigos QR, ou simplesmente um curioso a explorar a tecnologia de códigos de barras, o nosso código de barras gerador está aqui para si.",
+  "aboutUsP2": "No CodeBarreGenerator.com, acreditamos no acesso livre a ferramentas úteis. É por isso que o nosso gerador de codigo de barras suporta uma vasta gama de simbologias, incluindo EAN-13, UPC-A, Code 128, Code 39, QR Code, e muitas outras. Esforçamo-nos continuamente por melhorar a nossa plataforma, adicionando novas funcionalidades e garantindo que o nosso serviço continua a ser o melhor gerador código de barras disponível gratuitamente.",
+  "aboutUsP3": "A nossa equipa é composta por programadores e designers dedicados que trabalham para garantir que a sua experiência no CodeBarreGenerator.com seja fluida e eficiente. Orgulhamo-nos de oferecer um gerador de codigo de barras gratuito que não só é gratuito como também respeita a sua privacidade – não armazenamos nenhuns dos dados que codifica.",
+  "aboutUsP4": "Obrigado por escolher o CodeBarreGenerator.com. Esperamos que a nossa ferramenta lhe seja útil. Não hesite em contactar-nos se tiver sugestões ou perguntas sobre o nosso gerador de codigo de barras gratuito.",
+  
+  "pageTitleContactUs": "Contacte-nos | CodeBarreGenerator.com",
+  "metaDescriptionContactUs": "Contacte a equipa do CodeBarreGenerator.com para qualquer questão ou feedback sobre o nosso gerador de código de barras. Estamos aqui para ajudar.",
+  "contactUsTitle": "Contacte-nos",
+  "contactUsP1": "Agradecemos os seus comentários e estamos aqui para responder a todas as suas perguntas sobre o CodeBarreGenerator.com e o nosso gerador de código de barras.",
+  "contactUsP2": "Se tiver sugestões para melhorar o nosso gerador de codigo de barras, se encontrar dificuldades técnicas, ou se simplesmente quiser partilhar a sua experiência connosco, não hesite em contactar-nos.",
+  "contactUsP3": "Pode contactar-nos por email através do seguinte endereço: {email}.",
+  "contactUsP4": "Esforçamo-nos por responder a todos os pedidos o mais rapidamente possível. A sua satisfação é a nossa prioridade e os seus comentários ajudam-nos a tornar o CodeBarreGenerator.com o melhor código de barras gerador gratuito disponível.",
+
+  "pageTitlePrivacyPolicy": "Política de Privacidade | CodeBarreGenerator.com",
+  "metaDescriptionPrivacyPolicy": "Consulte a política de privacidade do CodeBarreGenerator.com. Saiba como protegemos as suas informações quando utiliza o nosso gerador de código de barras.",
+  "privacyPolicyLastUpdated": "Última atualização: 16 de maio de 2025",
+
+  "pageTitleTermsOfService": "Termos de Serviço | CodeBarreGenerator.com",
+  "metaDescriptionTermsOfService": "Leia os termos de serviço do CodeBarreGenerator.com. Ao utilizar o nosso gerador de código de barras, aceita os nossos termos."
 }
+

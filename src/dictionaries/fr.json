@@ -71,8 +71,10 @@
     "qrcodeDescription": "Code-barres 2D pouvant stocker une grande quantité d'informations (URL, texte, contact, etc.)."
   },
   "footerCopyright": "© {year} CodeBarreGenerator.com. Tous droits réservés.",
-  "footerPrivacyPolicy": "Politique de confidentialité",
-  "footerTermsOfService": "Conditions d'utilisation",
+  "footerPrivacyPolicy": "Politique de Confidentialité",
+  "footerTermsOfService": "Conditions d'Utilisation",
+  "footerAboutUs": "À Propos de Nous",
+  "footerContactUs": "Contactez-Nous",
   "languageSwitcherLabel": "Langue:",
   "switchToPortuguese": "Português",
   "switchToFrench": "Français",
@@ -164,5 +166,29 @@
       "answer": "Oui, le format SVG (Scalable Vector Graphics) est idéal pour l'impression car il peut être redimensionné sans perte de qualité. Notre code barre generator vous le propose pour une qualité professionnelle."
     }
   ],
-  "faqOutro": "Nous espérons que cette FAQ a répondu à vos interrogations. CodeBarreGenerator.com s'engage à fournir le meilleur service de générateur de code barre gratuit et facile d'accès."
+  "faqOutro": "Nous espérons que cette FAQ a répondu à vos interrogations. CodeBarreGenerator.com s'engage à fournir le meilleur service de générateur de code barre gratuit et facile d'accès.",
+  
+  "pageTitleAboutUs": "À Propos de Nous | CodeBarreGenerator.com",
+  "metaDescriptionAboutUs": "Apprenez-en plus sur CodeBarreGenerator.com, votre ressource numéro un pour un generateur code barre gratuit, rapide et fiable. Découvrez notre mission.",
+  "aboutUsTitle": "À Propos de CodeBarreGenerator.com",
+  "aboutUsP1": "Bienvenue sur CodeBarreGenerator.com ! Nous sommes passionnés par la simplification de la technologie et c'est pourquoi nous avons créé ce générateur de code barre. Notre objectif principal est de fournir un outil en ligne gratuit, intuitif et puissant qui permet à quiconque de créer des codes barres de qualité professionnelle sans tracas ni coûts cachés. Que vous soyez une petite entreprise cherchant à étiqueter des produits, un organisateur d'événements ayant besoin de billets avec QR codes, ou simplement un curieux explorant la technologie des codes barres, notre code barre generator est là pour vous.",
+  "aboutUsP2": "Chez CodeBarreGenerator.com, nous croyons en l'accès libre aux outils utiles. C'est pourquoi notre generateur de code barre supporte une vaste gamme de symbologies, y compris EAN-13, UPC-A, Code 128, Code 39, QR Code, et bien d'autres. Nous nous efforçons continuellement d'améliorer notre plateforme, en ajoutant de nouvelles fonctionnalités et en veillant à ce que notre service reste le meilleur générateur code barre disponible gratuitement.",
+  "aboutUsP3": "Notre équipe est composée de développeurs et de designers dévoués qui travaillent pour s'assurer que votre expérience sur CodeBarreGenerator.com soit fluide et efficace. Nous sommes fiers d'offrir un generateur de code barre qui est non seulement gratuit mais aussi respectueux de votre vie privée – nous ne stockons aucune des données que vous encodez.",
+  "aboutUsP4": "Merci de choisir CodeBarreGenerator.com. Nous espérons que notre outil vous sera utile. N'hésitez pas à nous contacter si vous avez des suggestions ou des questions sur notre générateur code barre gratuit.",
+
+  "pageTitleContactUs": "Contactez-Nous | CodeBarreGenerator.com",
+  "metaDescriptionContactUs": "Contactez l'équipe de CodeBarreGenerator.com pour toute question ou retour sur notre générateur de code barre. Nous sommes là pour vous aider.",
+  "contactUsTitle": "Contactez-Nous",
+  "contactUsP1": "Nous apprécions vos commentaires et sommes là pour répondre à toutes vos questions concernant CodeBarreGenerator.com et notre générateur de code barre.",
+  "contactUsP2": "Si vous avez des suggestions pour améliorer notre generateur de code barre, si vous rencontrez des difficultés techniques, ou si vous souhaitez simplement nous faire part de votre expérience, n'hésitez pas à nous joindre.",
+  "contactUsP3": "Vous pouvez nous contacter par email à l'adresse suivante : {email}.",
+  "contactUsP4": "Nous nous efforçons de répondre à toutes les demandes dans les plus brefs délais. Votre satisfaction est notre priorité et vos retours nous aident à faire de CodeBarreGenerator.com le meilleur code barre generator gratuit disponible.",
+
+  "pageTitlePrivacyPolicy": "Politique de Confidentialité | CodeBarreGenerator.com",
+  "metaDescriptionPrivacyPolicy": "Consultez la politique de confidentialité de CodeBarreGenerator.com. Apprenez comment nous protégeons vos informations lorsque vous utilisez notre générateur de code barre.",
+  "privacyPolicyLastUpdated": "Dernière mise à jour : 16 mai 2025",
+
+  "pageTitleTermsOfService": "Conditions d'Utilisation | CodeBarreGenerator.com",
+  "metaDescriptionTermsOfService": "Lisez les conditions d'utilisation de CodeBarreGenerator.com. En utilisant notre générateur de code barre, vous acceptez nos termes."
 }
+

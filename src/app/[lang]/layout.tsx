@@ -1,3 +1,4 @@
+
 import type { Metadata, Viewport } from 'next';
 import { getDictionary } from '@/lib/dictionaries';
 import type { Locale } from '@/i18n-config';
@@ -44,8 +45,11 @@ export default async function LocaleLayout({
       <Footer lang={lang} dictionary={{
         footerCopyright: dictionary.footerCopyright,
         footerPrivacyPolicy: dictionary.footerPrivacyPolicy,
-        footerTermsOfService: dictionary.footerTermsOfService
+        footerTermsOfService: dictionary.footerTermsOfService,
+        footerAboutUs: dictionary.footerAboutUs,
+        footerContactUs: dictionary.footerContactUs
       }} />
     </>
   );
 }
+
